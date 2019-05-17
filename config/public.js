@@ -1,5 +1,5 @@
 'use strict';
-const publicPaths = ['api/auth/login', 'api/auth/signup'];
+const publicPaths = ['api/auth/login', 'api/auth/signup','api/tickets', 'api/boards'];
 
 const prefix = '^\/';
 const pathRegexStr = prefix + publicPaths.map((path) => {
