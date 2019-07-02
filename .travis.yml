@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - v11
+  - v10
+  - v9
+  - v8
+  - v7
+services:
+  - mongodb

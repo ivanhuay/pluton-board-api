@@ -8,13 +8,15 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const routes = require('./lib/routes');
 const app = express();
-const extractJwt = require('./lib/routes/extract-jwt');
+const extractJwt = require('./lib/middlewares/extract-jwt');
 const publicPath = require('./config/public');
 const cors = require('cors');
+const {createFirstUser} = require('./lib/utils/create-first-user');
 function connectMongoose() {
     const mongoose = require('mongoose');
     mongoose.Promise = Promise;
-    return mongoose.connect('mongodb://' + process.env.MONGODB_HOST + ':' + process.env.MONGODB_PORT + '/' + process.env.MONGODB_DB, {useNewUrlParser: true});
+    return mongoose.connect('mongodb://' + process.env.MONGODB_HOST + ':' + process.env.MONGODB_PORT + '/' + process.env.MONGODB_DB, {useNewUrlParser: true})
+        .then(() => createFirstUser());
 }
 
 function initialize() {
@@ -54,8 +56,8 @@ function initialize() {
         }
         let error = {};
         error.status = err.status;
+        error.message = err.message;
         if (req.app.get('env') === 'development') {
-            error.message = err.message;
             error.stack = err.stack;
         }
         return res.status(err.status || 500).json({
