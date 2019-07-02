@@ -1,17 +1,16 @@
 'use strict';
 const request = require('supertest');
 const assert = require('assert');
-const application = require('../../app');
+const {getApp} = require('../mocks/get-app');
 let app;
 const Boards = require('../../lib/models/boards');
 describe('GET /api/boards', () => {
     before(() => {
-        return application.connectMongoose()
-            .then(() => {
-                app = application.initialize();
-                app.listen(process.env.SERVER_PORT);
+        return getApp()
+            .then((application) => {
+                app = application;
             })
-            .catch((err) => {
+            .catch(() => {
                 return process.exit(1);
             });
     });

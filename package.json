@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "node ./bin/init.js",
-    "test": "NODE_ENV=test && mocha tests/** --bail --exit"
+    "test": "NODE_ENV=test && mocha tests/**/*test.js --bail --exit"
   },
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
