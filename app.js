@@ -12,11 +12,16 @@ const extractJwt = require('./lib/middlewares/extract-jwt');
 const publicPath = require('./config/public');
 const cors = require('cors');
 const {createFirstUser} = require('./lib/utils/create-first-user');
+const {startCronJobs} = require('./lib/cron');
 function connectMongoose() {
     const mongoose = require('mongoose');
     mongoose.Promise = Promise;
     return mongoose.connect('mongodb://' + process.env.MONGODB_HOST + ':' + process.env.MONGODB_PORT + '/' + process.env.MONGODB_DB, {useNewUrlParser: true})
-        .then(() => createFirstUser());
+        .then(() => createFirstUser())
+        .then(() => {
+            startCronJobs();
+        });
+
 }
 
 function initialize() {

@@ -9,6 +9,13 @@
   "extends": [
     "plugin:security/recommended"
   ],
+ "parserOptions": {
+    "ecmaVersion": 8,
+    "ecmaFeatures": {
+      "globalReturn": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
   "rules": {
     "brace-style": [2,"1tbs",{}],
     "camelcase": [2,{"properties":"never"}],
