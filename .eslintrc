@@ -95,7 +95,7 @@
     "valid-typeof": 2,
     "no-unexpected-multiline": 2,
     "block-scoped-var": 1,
-    "complexity": [2,5],
+    "complexity": [2,7],
     "consistent-return": 2,
     "curly": [2,"all"],
     "default-case": 1,
