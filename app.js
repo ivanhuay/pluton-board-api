@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const logger = require('./lib/logger');
 const expressWinston = require('express-winston');
-require('dotenv').load();
+require('dotenv').config({path:path.resolve(process.cwd(), `.env.${process.env.NODE_ENV}`)});
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const routes = require('./lib/routes');
