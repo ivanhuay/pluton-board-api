@@ -16,7 +16,7 @@
     "helmet": "^3.21.1",
     "hiroki": "^0.2.7",
     "jsonwebtoken": "^8.4.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "mongoose": "^5.7.5",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
