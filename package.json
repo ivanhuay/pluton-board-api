@@ -15,7 +15,7 @@
     "github-api": "^3.2.2",
     "helmet": "^3.21.1",
     "hiroki": "^0.2.7",
-    "jsonwebtoken": "^8.4.0",
+    "jsonwebtoken": "^9.0.0",
     "moment": "^2.24.0",
     "mongoose": "^5.7.5",
     "request": "^2.88.0",
